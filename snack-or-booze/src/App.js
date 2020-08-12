@@ -45,6 +45,7 @@ function App() {
     }
     const added = SnackOrBoozeApi.addNewItem(type, newItem);
     added ? window.location.href = `/${type}` : alert('Something went wrong. Please try again.')
+    setFormData(INIITIAL_FORM_DATA);
   }
 
   if (isLoading) {

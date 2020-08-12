@@ -39,9 +39,3 @@ export default function AddItem( {type, formData, changeHandler, submitHandler} 
     </Card>
   )
 }
-
-// description: "Tart and delicious."
-// id: "arugula-and-walnut-salad"
-// name: "Arugula and Walnut Salad"
-// recipe: "Mix arugula, toasted walnuts, and thinly-sliced Parmesan cheese. Dress with lemon and olive oil."
-// serve: "Place on tiny, precious little plates."
