@@ -6,7 +6,7 @@ End:
 
 Total time: 
 Conceptual Questions: 
-Add Commas Function and Tests: 
-Madlibs Code and Tests: 
+Unroll Function and Tests: 1 hour
+Snack or Booze Code and Tests: 
 
 Target time: 10-15 hours
