@@ -37,6 +37,15 @@ function App() {
     }));
   }
 
+  const submitHandler = (e, type) => {
+    e.preventDefault();
+    const newItem = {
+      ...formData,
+      id: formData.name.toLowerCase().replace(/\s/g, '-')
+    }
+    
+  }
+
   if (isLoading) {
     return <p>Loading &hellip;</p>;
   }
@@ -54,10 +63,10 @@ function App() {
               <Menu items={items.drinks} title="Drinks" />
             </Route>
             <Route path="/snacks/add">
-              <AddItem  type="snacks" formData={formData} changeHandler={changeHandler} />
+              <AddItem  type="snacks" formData={formData} changeHandler={changeHandler} submitHandler={submitHandler} />
             </Route>
             <Route path="/drinks/add">
-              <AddItem  type="drinks" />
+              <AddItem  type="drinks" formData={formData} changeHandler={changeHandler} submitHandler={submitHandler} />
             </Route>
             <Route path="/snacks/:id">
               <MenuItem items={items.snacks} cantFind="/snacks" />

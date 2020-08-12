@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
 
-export default function AddItem( {formData, type, changeHandler, submitHandler} ) {
+export default function AddItem( {type, formData, changeHandler, submitHandler} ) {
   const { name, description, recipe, serve } = formData;
   return (
-    <Form onSubmit={() => submitHandler(type)} >
+    <Form onSubmit={(e) => submitHandler(e, type)} >
       <FormGroup>
         <Label for="item-name">Name:</Label>
         <Input type="text" id="item-name" value={name} name="name" onChange={changeHandler} />
