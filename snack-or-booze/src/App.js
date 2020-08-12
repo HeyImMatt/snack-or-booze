@@ -10,8 +10,15 @@ import MenuItem from "./MenuItem";
 import AddItem from './AddItem'
 
 function App() {
+  const INIITIAL_FORM_DATA = {
+    name: '',
+    description: '',
+    recipe: '',
+    serve: ''
+  }
   const [isLoading, setIsLoading] = useState(true);
   const [items, setItems] = useState({});
+  const [formData, setFormData] = useState(INIITIAL_FORM_DATA)
 
   useEffect(() => {
     async function getItems() {
@@ -21,6 +28,14 @@ function App() {
     }
     getItems();
   }, []);
+
+  const changeHandler = (e) => {
+    const { name, value } = e.target;
+    setFormData((fdata) => ({
+      ...fdata,
+      [name]: value
+    }));
+  }
 
   if (isLoading) {
     return <p>Loading &hellip;</p>;
@@ -39,7 +54,7 @@ function App() {
               <Menu items={items.drinks} title="Drinks" />
             </Route>
             <Route path="/snacks/add">
-              <AddItem  type="snacks" />
+              <AddItem  type="snacks" formData={formData} changeHandler={changeHandler} />
             </Route>
             <Route path="/drinks/add">
               <AddItem  type="drinks" />

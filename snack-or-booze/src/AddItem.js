@@ -1,26 +1,27 @@
 import React from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
 
 export default function AddItem( {formData, type, changeHandler, submitHandler} ) {
+  const { name, description, recipe, serve } = formData;
   return (
-    <Form onSubmit={submitHandler} >
+    <Form onSubmit={() => submitHandler(type)} >
       <FormGroup>
         <Label for="item-name">Name:</Label>
-        <Input type="text" id="item-name" value="{}" name="{}" onChange={changeHandler} />
+        <Input type="text" id="item-name" value={name} name="name" onChange={changeHandler} />
       </FormGroup>
       <FormGroup>
         <Label for="item-description">Description:</Label>
-        <Input type="text" id="item-description" value="{}" name="{}" onChange={changeHandler} />
+        <Input type="text" id="item-description" value={description} name="description" onChange={changeHandler} />
       </FormGroup>
       <FormGroup>
         <Label for="item-recipe">Recipe:</Label>
-        <Input type="textarea" id="item-recipe" value="{}" name="{}" onChange={changeHandler} />
+        <Input type="textarea" id="item-recipe" value={recipe} name="recipe" onChange={changeHandler} />
       </FormGroup>
       <FormGroup>
         <Label for="item-serve">Serve:</Label>
-        <Input type="text" id="item-serve" value="{}" name="{}" onChange={changeHandler} />
+        <Input type="text" id="item-serve" value={serve} name="serve" onChange={changeHandler} />
       </FormGroup>
-      <Button type="submit">Add Item</Button>
+      <Button type="submit">Add</Button>
     </Form>
   )
 }
