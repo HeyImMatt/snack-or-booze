@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Redirect } from "react-router-dom";
 import "./App.css";
 import Home from "./Home";
 import SnackOrBoozeApi from "./Api";
@@ -43,7 +43,8 @@ function App() {
       ...formData,
       id: formData.name.toLowerCase().replace(/\s/g, '-')
     }
-    
+    const added = SnackOrBoozeApi.addNewItem(type, newItem);
+    added ? window.location.href = `/${type}` : alert('Something went wrong. Please try again.')
   }
 
   if (isLoading) {

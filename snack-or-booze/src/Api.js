@@ -14,8 +14,15 @@ class SnackOrBoozeApi {
   static async getItems() {
     const snacks = await axios.get(`${BASE_API_URL}/snacks`);
     const drinks = await axios.get(`${BASE_API_URL}/drinks`);
-    console.log(snacks)
     return {snacks: snacks.data, drinks: drinks.data}
+  }
+
+  static async addNewItem(type, item) {
+    const resp = await axios.post(`${BASE_API_URL}/${type}`, item)
+    if (resp.status === 201) {
+      return true;
+    }
+    return false;
   }
 
 }
