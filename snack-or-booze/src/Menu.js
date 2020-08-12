@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./FoodMenu.css";
+import "./Menu.css";
 import {
   Card,
   CardBody,
@@ -10,7 +10,7 @@ import {
   ListGroupItem
 } from "reactstrap";
 
-function FoodMenu({ items, title }) {
+function Menu({ items, title }) {
   return (
     <section className="col-md-4">
       <Card>
@@ -34,4 +34,4 @@ function FoodMenu({ items, title }) {
   );
 }
 
-export default FoodMenu;
+export default Menu;

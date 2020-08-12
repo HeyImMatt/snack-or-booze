@@ -5,7 +5,7 @@ import Home from "./Home";
 import SnackOrBoozeApi from "./Api";
 import NavBar from "./NavBar";
 import { Route, Switch } from "react-router-dom";
-import Menu from "./FoodMenu";
+import Menu from "./Menu";
 import Snack from "./FoodItem";
 
 function App() {
