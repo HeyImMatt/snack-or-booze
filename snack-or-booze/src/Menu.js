@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Menu.css";
 import {
+  Button,
   Card,
   CardBody,
   CardTitle,
@@ -11,6 +12,7 @@ import {
 } from "reactstrap";
 
 function Menu({ items, title }) {
+  const titleLow = title.toLowerCase();
   return (
     <section className="col-md-4">
       <Card>
@@ -23,11 +25,14 @@ function Menu({ items, title }) {
           </CardText>
           <ListGroup>
             {items.map(item => (
-              <Link to={`/${title.toLowerCase()}/${item.id}`} key={item.id}>
+              <Link to={`/${titleLow}/${item.id}`} key={item.id}>
                 <ListGroupItem>{item.name}</ListGroupItem>
               </Link>
             ))}
           </ListGroup>
+          <Button href={`/${titleLow}/add`} className="mt-4 d-block mx-auto" size="sm">
+            + Add {title.slice(0, - 1)}
+          </Button>
         </CardBody>
       </Card>
     </section>

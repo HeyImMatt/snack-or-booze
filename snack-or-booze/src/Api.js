@@ -14,6 +14,7 @@ class SnackOrBoozeApi {
   static async getItems() {
     const snacks = await axios.get(`${BASE_API_URL}/snacks`);
     const drinks = await axios.get(`${BASE_API_URL}/drinks`);
+    console.log(snacks)
     return {snacks: snacks.data, drinks: drinks.data}
   }
 

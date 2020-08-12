@@ -7,6 +7,7 @@ import NavBar from "./NavBar";
 import { Route, Switch } from "react-router-dom";
 import Menu from "./Menu";
 import MenuItem from "./MenuItem";
+import AddItem from './AddItem'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -36,6 +37,12 @@ function App() {
             </Route>
             <Route exact path="/drinks">
               <Menu items={items.drinks} title="Drinks" />
+            </Route>
+            <Route path="/snacks/add">
+              <AddItem  type="snacks" />
+            </Route>
+            <Route path="/drinks/add">
+              <AddItem  type="drinks" />
             </Route>
             <Route path="/snacks/:id">
               <MenuItem items={items.snacks} cantFind="/snacks" />
