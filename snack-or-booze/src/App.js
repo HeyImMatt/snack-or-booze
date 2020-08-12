@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <NavBar />
+        <NavBar numSnacks={items.snacks.length} numDrinks={items.drinks.length} />
         <main>
           <Switch>
             <Route exact path="/">
