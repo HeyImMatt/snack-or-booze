@@ -31,9 +31,6 @@ function App() {
         <NavBar numSnacks={items.snacks.length} numDrinks={items.drinks.length} />
         <main>
           <Switch>
-            <Route exact path="/">
-              <Home snacks={items.snacks} />
-            </Route>
             <Route exact path="/snacks">
               <Menu items={items.snacks} title="Snacks" />
             </Route>
@@ -46,8 +43,11 @@ function App() {
             <Route path="/drinks/:id">
               <MenuItem items={items.drinks} cantFind="/drinks" />
             </Route>
+            <Route exact path="/">
+              <Home />
+            </Route>
             <Route>
-              <p>Hmmm. I can't seem to find what you want.</p>
+              <p>Oops. That's not here, but click Snacks or Drinks for some tasty options!</p>
             </Route>
           </Switch>
         </main>
