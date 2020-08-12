@@ -12,8 +12,8 @@ export default function AddItem( {type, formData, changeHandler, submitHandler} 
   const { name, description, recipe, serve } = formData;
   return (
     <Card>
-      <CardTitle className="mt-3 mb-0 font-weight-bold text-center">
-        Add New Menu Item
+      <CardTitle className="mt-3 mb-0 font-weight-bold text-center capitalize">
+        Add New {type.slice(0, -1)}
       </CardTitle>
       <CardBody>
         <Form onSubmit={(e) => submitHandler(e, type)} >
