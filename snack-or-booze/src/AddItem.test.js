@@ -3,7 +3,6 @@ import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import AddItem from './AddItem';
 
-
 describe('AddItem Component Tests', () => {
   const formData = {
     name: '',
@@ -19,10 +18,7 @@ describe('AddItem Component Tests', () => {
       type='drinks' 
       formData={formData} 
       changeHandler={changeHandlerMock} 
-      submitHandler={(e) => {
-        e.preventDefault();
-        submitHandlerMock();
-      }} 
+      submitHandler={submitHandlerMock} 
     />);
     
     expect(getByText('Add New drink')).toBeInTheDocument();
