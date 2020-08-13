@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom'
+import { MemoryRouter, Route } from 'react-router-dom'
 import '@testing-library/jest-dom/extend-expect';
 import MenuItem from './MenuItem';
 
@@ -26,35 +26,14 @@ describe('Menu Tests', () => {
 
     it('renders the test item', () => {
       const { getByText } = render(
-        <MemoryRouter
-        initialEntries={['/drinks/gt-kombucha']}>
-          <MenuItem items={testItems} cantFind='/drinks' />
+        <MemoryRouter initialEntries={['/drinks/gt-kombucha']}>
+          <Route path='/drinks/:id'>
+            <MenuItem items={testItems} cantFind='/drinks' />
+          </Route>
         </MemoryRouter>
       );
       
       expect(getByText('GT Kombucha')).toBeInTheDocument();
   });
-
-
-
-  // it("renders the test item", () => {
-  //   const { getByText } = render(
-  //     <MemoryRouter>
-  //       <Menu items={testItems} />
-  //     </MemoryRouter>
-  //   );;
-
-  //   expect(getByText('GT Kombucha')).toBeInTheDocument();
-  // });
-
-  // it("renders the add button", () => {
-  //   const { getByText } = render(
-  //     <MemoryRouter>
-  //       <Menu items={testItems} title='Drinks' />
-  //     </MemoryRouter>
-  //   );;
-  
-  //   expect(getByText('+ Add Drink')).toBeInTheDocument();
-  // });
 
 });
