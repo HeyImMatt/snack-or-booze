@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, getByText } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom'
 import '@testing-library/jest-dom/extend-expect';
 import Menu from './Menu';
