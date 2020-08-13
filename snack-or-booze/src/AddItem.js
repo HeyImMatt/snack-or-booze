@@ -19,19 +19,19 @@ export default function AddItem( {type, formData, changeHandler, submitHandler} 
         <Form onSubmit={(e) => submitHandler(e, type)} >
           <FormGroup>
             <Label for="item-name">Name:</Label>
-            <Input type="text" id="item-name" value={name} name="name" onChange={changeHandler} />
+            <Input type="text" id="item-name" value={name} name="name" onChange={changeHandler} required />
           </FormGroup>
           <FormGroup>
             <Label for="item-description">Description:</Label>
-            <Input type="text" id="item-description" value={description} name="description" onChange={changeHandler} />
+            <Input type="text" id="item-description" value={description} name="description" onChange={changeHandler} required />
           </FormGroup>
           <FormGroup>
             <Label for="item-recipe">Recipe:</Label>
-            <Input type="textarea" id="item-recipe" value={recipe} name="recipe" onChange={changeHandler} />
+            <Input type="textarea" id="item-recipe" value={recipe} name="recipe" onChange={changeHandler} required/>
           </FormGroup>
           <FormGroup>
             <Label for="item-serve">Serve:</Label>
-            <Input type="text" id="item-serve" value={serve} name="serve" onChange={changeHandler} />
+            <Input type="text" id="item-serve" value={serve} name="serve" onChange={changeHandler} required/>
           </FormGroup>
           <Button type="submit" className="mt-4 d-block mx-auto" size="sm">Add</Button>
         </Form>
