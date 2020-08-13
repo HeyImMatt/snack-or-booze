@@ -2,12 +2,11 @@ Time Spent
 
 Start: 5:30 pm - 8/11/2020
 
-End: 
+End: 9:30 am - 8/13/2020
 
-Total time: 
-Conceptual Questions: 
+Total time: 9 hours
+
+Conceptual Questions: 1 hour
 Unroll Function and Tests: 1 hour
 Snack or Booze Code: 3.5 hours 
-Snack or Booze Tests: 
-
-Target time: 10-15 hours
+Snack or Booze Tests: 3.5 hours
