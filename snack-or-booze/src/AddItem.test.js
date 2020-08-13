@@ -1,6 +1,8 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react'
+import { render, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
 import AddItem from './AddItem';
+
 
 describe('AddItem Component Tests', () => {
   const formData = {
@@ -9,16 +11,38 @@ describe('AddItem Component Tests', () => {
     recipe: '',
     serve: ''
   }
-
-  const changeHandler = jest.fn();
-  const submitHandler = jest.fn();
+  const changeHandlerMock = jest.fn();
+  const submitHandlerMock = jest.fn();
 
   it('renders without crashing', () => {
-    render(<AddItem 
+    const { getByText, getByLabelText } =  render(<AddItem 
       type='drinks' 
       formData={formData} 
-      changeHandler={changeHandler} 
-      submitHandler={submitHandler} 
+      changeHandler={changeHandlerMock} 
+      submitHandler={(e) => {
+        e.preventDefault();
+        submitHandlerMock();
+      }} 
     />);
+    
+    expect(getByText('Add New drink')).toBeInTheDocument();
+    expect(getByLabelText('Name:')).toBeInTheDocument();
   });
-})
+  
+  it('Calls submitHandler on submit', () => {
+    const { getByText } =  render(<AddItem 
+      type='drinks' 
+      formData={formData} 
+      changeHandler={changeHandlerMock} 
+      submitHandler={(e) => {
+        e.preventDefault();
+        submitHandlerMock();
+      }} 
+    />);
+    const submitBtn = getByText('Add');
+    fireEvent.click(submitBtn);
+    expect(submitHandlerMock).toBeCalled();
+  });
+
+
+});
