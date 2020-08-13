@@ -17,10 +17,11 @@ describe('Menu Tests', () => {
 
   it('renders without crashing', () => {
     render(
-      <MemoryRouter
-      initialEntries={['/drinks/gt-kombucha']}>
+      <MemoryRouter initialEntries={['/drinks/gt-kombucha']}>
+      <Route path='/drinks/:id'>
         <MenuItem items={testItems} cantFind='/drinks' />
-      </MemoryRouter>
+      </Route>
+    </MemoryRouter>
     );
   });
 
