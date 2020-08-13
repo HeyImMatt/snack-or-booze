@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 import Home from "./Home";
 import SnackOrBoozeApi from "./Api";
@@ -54,37 +53,35 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
-        <NavBar numSnacks={items.snacks.length} numDrinks={items.drinks.length} />
-        <main>
-          <Switch>
-            <Route exact path="/snacks">
-              <Menu items={items.snacks} title="Snacks" />
-            </Route>
-            <Route exact path="/drinks">
-              <Menu items={items.drinks} title="Drinks" />
-            </Route>
-            <Route path="/snacks/add">
-              <AddItem  type="snacks" formData={formData} changeHandler={changeHandler} submitHandler={submitHandler} />
-            </Route>
-            <Route path="/drinks/add">
-              <AddItem  type="drinks" formData={formData} changeHandler={changeHandler} submitHandler={submitHandler} />
-            </Route>
-            <Route path="/snacks/:id">
-              <MenuItem items={items.snacks} cantFind="/snacks" />
-            </Route>
-            <Route path="/drinks/:id">
-              <MenuItem items={items.drinks} cantFind="/drinks" />
-            </Route>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route>
-              <p>Oops. That's not here, but click Snacks or Drinks for some tasty options!</p>
-            </Route>
-          </Switch>
-        </main>
-      </BrowserRouter>
+      <NavBar numSnacks={items.snacks.length} numDrinks={items.drinks.length} />
+      <main>
+        <Switch>
+          <Route exact path="/snacks">
+            <Menu items={items.snacks} title="Snacks" />
+          </Route>
+          <Route exact path="/drinks">
+            <Menu items={items.drinks} title="Drinks" />
+          </Route>
+          <Route path="/snacks/add">
+            <AddItem  type="snacks" formData={formData} changeHandler={changeHandler} submitHandler={submitHandler} />
+          </Route>
+          <Route path="/drinks/add">
+            <AddItem  type="drinks" formData={formData} changeHandler={changeHandler} submitHandler={submitHandler} />
+          </Route>
+          <Route path="/snacks/:id">
+            <MenuItem items={items.snacks} cantFind="/snacks" />
+          </Route>
+          <Route path="/drinks/:id">
+            <MenuItem items={items.drinks} cantFind="/drinks" />
+          </Route>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route>
+            <p>Oops. That's not here, but click Snacks or Drinks for some tasty options!</p>
+          </Route>
+        </Switch>
+      </main>
     </div>
   );
 }

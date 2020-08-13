@@ -18,7 +18,7 @@ describe('Menu Tests', () => {
   it('renders without crashing', () => {
     render(
       <MemoryRouter
-      initialEntries={['drinks/gt-kombucha']}>
+      initialEntries={['/drinks/gt-kombucha']}>
         <MenuItem items={testItems} cantFind='/drinks' />
       </MemoryRouter>
     );
@@ -27,8 +27,7 @@ describe('Menu Tests', () => {
     it('renders the test item', () => {
       const { getByText } = render(
         <MemoryRouter
-        initialEntries={['/drinks/gt-kombucha']}
-        initialIndex={0}>
+        initialEntries={['/drinks/gt-kombucha']}>
           <MenuItem items={testItems} cantFind='/drinks' />
         </MemoryRouter>
       );
