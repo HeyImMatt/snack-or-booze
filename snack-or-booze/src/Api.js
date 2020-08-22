@@ -11,9 +11,18 @@ const BASE_API_URL = "http://localhost:5000";
 
 class SnackOrBoozeApi {
 
-  static async getSnacks() {
-    const result = await axios.get(`${BASE_API_URL}/snacks`);
-    return result.data;
+  static async getItems() {
+    const snacks = await axios.get(`${BASE_API_URL}/snacks`);
+    const drinks = await axios.get(`${BASE_API_URL}/drinks`);
+    return {snacks: snacks.data, drinks: drinks.data}
+  }
+
+  static async addNewItem(type, item) {
+    const resp = await axios.post(`${BASE_API_URL}/${type}`, item)
+    if (resp.status === 201) {
+      return true;
+    }
+    return false;
   }
 
 }
