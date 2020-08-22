@@ -43,7 +43,7 @@ function App() {
       id: formData.name.toLowerCase().replace(/\s/g, '-')
     }
     const added = SnackOrBoozeApi.addNewItem(type, newItem);
-    added ? window.location.href = `/${type}` : alert('Something went wrong. Please try again.')
+    added ? history.push(`/${type}`) : alert('Something went wrong. Please try again.')
     setFormData(INIITIAL_FORM_DATA);
   }
 

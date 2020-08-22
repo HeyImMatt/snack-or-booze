@@ -30,9 +30,9 @@ function Menu({ items, title }) {
               </Link>
             ))}
           </ListGroup>
-          <Button href={`/${titleLow}/add`} className="mt-4 d-block mx-auto" size="sm">
+          <Link to={`/${titleLow}/add`} className="mt-4 d-block mx-auto" size="sm">
             + Add {title.slice(0, - 1)}
-          </Button>
+          </Link>
         </CardBody>
       </Card>
     </section>
